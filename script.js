@@ -29,12 +29,21 @@ $(document).ready(function() {
 
     var month = new Intl.DateTimeFormat('en-US', options).format(today);
 
+    var loggedDay = JSON.parse(localStorage.getItem("Current day of month"));
+
     $("#date").text(weekday + ", " + month + " " + dayMonth);
 
     // If last 2 digits of time are both 0, apply color theme (past times greyed out, current time in 1 color)
 
     // Save button on click, link that section's current text content to the section's data attribute (time) via an array of objects, stringify, and store in local storage
 
+    if (loggedDay !== dayMonth) {
+
+        localStorage.clear();
+
+    }
+
+    localStorage.setItem("Current day of month", JSON.stringify(dayMonth));
 
     for (i = 9; i < 13; i++) {
 
