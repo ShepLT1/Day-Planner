@@ -33,8 +33,6 @@ $(document).ready(function() {
 
     var loggedDay = JSON.parse(localStorage.getItem("Current day of month"));
 
-    var loggedHour = JSON.parse(localStorage.getItem("Current hour"));
-
     $("#date").text(weekday + ", " + month + " " + dayMonth);
 
     // If last 2 digits of time are both 0, apply color theme (past times greyed out, current time in 1 color)
@@ -47,19 +45,16 @@ $(document).ready(function() {
 
     }
 
-    if (loggedHour !== hour) {
+    for (j = hour; j > 8; j--) {
 
-        for (j = hour; j > 8; j--) {
-
-            $(`#${j}`).css("background-color", "grey");
-    
-        }
+        $(`#${j}`).css("background-color", "grey");
 
     }
 
+
     if (hour > 8 & hour < 18) {
     
-        hour.css("background-color", "turquoise");
+        $(`#${hour}`).css("background-color", "turquoise");
 
     }
 ;
