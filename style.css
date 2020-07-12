@@ -1,0 +1,57 @@
+header {
+
+    height: 150px;
+    text-align: center;
+    padding: 30px;
+
+}
+
+main {
+
+    width: 100%;
+
+}
+
+article {
+
+    margin: 25px 50px;
+    background-color: teal;
+
+}
+
+section {
+
+    height: 75px;
+
+}
+
+.time-div {
+
+    float: left;
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background-color: rebeccapurple;
+    border: 1px solid black;
+
+}
+
+button {
+
+    float: right;
+    position: absolute;
+    right: 50px;
+    width: 75px;
+    height: 75px;
+    background-color: rebeccapurple;
+
+}
+
+textarea {
+
+    background-color: tomato;
+    width: 100%;
+    height: 100%;
+    padding: 5px 85px;
+
+}
