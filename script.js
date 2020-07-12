@@ -43,6 +43,12 @@ $(document).ready(function() {
 
         localStorage.clear();
 
+        for (k = 9; k < 18; k++) {
+
+            $(`#${k}`).css("background-color", "tomato");
+    
+        }
+
     }
 
     for (j = hour; j > 8; j--) {
@@ -50,14 +56,9 @@ $(document).ready(function() {
         $(`#${j}`).css("background-color", "grey");
 
     }
-
-
-    if (hour > 8 & hour < 18) {
     
-        $(`#${hour}`).css("background-color", "turquoise");
+    $(`#${hour}`).css("background-color", "turquoise");
 
-    }
-;
     localStorage.setItem("Current day of month", JSON.stringify(dayMonth));
 
     localStorage.setItem("Current hour", JSON.stringify(hour));
