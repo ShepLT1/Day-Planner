@@ -16,6 +16,8 @@ $(document).ready(function() {
 
     var dayMonth = today.getDate();
 
+    var hour = today.getHours();
+
     var dayArr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     var weekday = dayArr[day];
@@ -31,6 +33,8 @@ $(document).ready(function() {
 
     var loggedDay = JSON.parse(localStorage.getItem("Current day of month"));
 
+    var loggedHour = JSON.parse(localStorage.getItem("Current hour"));
+
     $("#date").text(weekday + ", " + month + " " + dayMonth);
 
     // If last 2 digits of time are both 0, apply color theme (past times greyed out, current time in 1 color)
@@ -43,21 +47,31 @@ $(document).ready(function() {
 
     }
 
+    if (loggedHour !== hour) {
+
+        for (j = hour; j > 8; j--) {
+
+            $(`#${j}`).css("background-color", "grey");
+    
+        }
+
+    }
+
+    if (hour > 8 & hour < 18) {
+    
+        hour.css("background-color", "turquoise");
+
+    }
+;
     localStorage.setItem("Current day of month", JSON.stringify(dayMonth));
 
-    for (i = 9; i < 13; i++) {
+    localStorage.setItem("Current hour", JSON.stringify(hour));
+
+    for (i = 9; i < 18; i++) {
 
         toDo = JSON.parse(localStorage.getItem(i));
 
         $("#" + i).text(toDo);
-
-    }
-
-    for (j = 1; j < 6; j++) {
-
-        toDo = JSON.parse(localStorage.getItem(j));
-
-        $("#" + j).text(toDo);
 
     }
 
