@@ -9,11 +9,11 @@ $(document).ready(function() {
 
     var matches = "";
 
-    var d = "";
+    var newDay = "";
 
-    var m = "";
+    var newMonth = "";
 
-    var y = "";
+    var newYear = "";
 
     var composedDate = "";
 
@@ -40,11 +40,9 @@ $(document).ready(function() {
     // syntactic sugar
     // console.log(`this is day: ${weekday}`);
 
-    var loggedDay = JSON.parse(localStorage.getItem("Current day of month"));
+    var loggedDay = JSON.parse(localStorage.getItem("Today's date"));
 
     var currentDay = (date.month + 1) + "/" + date.dayMonth + "/" + date.year;
-
-    $("#date").text(weekday + ", " + date.longMonth[date.month] + " " + date.dayMonth);
 
     $( function() {
         $( "#datepicker" ).datepicker({
@@ -67,40 +65,52 @@ $(document).ready(function() {
 
             };
         
-        d = matches[2];
+        newDay = matches[2];
         
-        m = matches[1] - 1;
+        newMonth = matches[1] - 1;
         
-        y = matches[3];
+        newYear = matches[3];
         
-        composedDate = new Date(y, m, d);
+        composedDate = new Date(newYear, newMonth, newDay);
         
-        return composedDate.getDate() == d &&
-                composedDate.getMonth() == m &&
-                composedDate.getFullYear() == y;
+        return composedDate.getDate() == newDay &&
+                composedDate.getMonth() == newMonth &&
+                composedDate.getFullYear() == newYear;
     }
 
-    if (loggedDay !== date.dayMonth) {
+    function changeAllShading(color) {
 
         for (k = 9; k < 18; k++) {
 
-            $(`#${k}`).css("background-color", "tomato");
+            $(`#${k}`).css("background-color", color);
     
         }
 
     }
 
-    for (j = date.hour; j > 8; j--) {
+    function changeDayShading() {
 
-        $(`#${j}`).css("background-color", "grey");
+        for (j = date.hour; j > 8; j--) {
+
+            $(`#${j}`).css("background-color", "grey");
+    
+        }
+        
+        $(`#${date.hour}`).css("background-color", "turquoise");
 
     }
-    
-    $(`#${date.hour}`).css("background-color", "turquoise");
 
-    localStorage.setItem("Current day of month", JSON.stringify(date.dayMonth));
+    $("#date").text(weekday + ", " + date.longMonth[date.month] + " " + date.dayMonth + " " + date.year);
 
-    localStorage.setItem("Current hour", JSON.stringify(date.hour));
+    if (loggedDay !== currentDay) {
+
+        changeAllShading("tomato");
+
+    }
+
+    changeDayShading();
+
+    localStorage.setItem("Today's date", JSON.stringify(currentDay));
 
     for (i = 9; i < 18; i++) {
 
@@ -138,79 +148,51 @@ $(document).ready(function() {
 
         if (isValidDate(dateChosen)) {
 
-            // change textarea shading based on future/past date; can pull current month (if current month > chosenMonth then make all greyed out & opposite for current month < chosenMonth; if same month, set up if statements the same but sub days for months)
+            if (newDay.charAt(0) == 0) {
 
-            if (d.charAt(0) == 0) {
-
-                d = d.substring(1);
+                newDay = newDay.substring(1);
 
             }
 
             chosenWeekday = date.dayArr[composedDate.getDay()];
 
-            $("#date").text(chosenWeekday + ", " + date.longMonth[m] + " " + d);
+            $("#date").text(chosenWeekday + ", " + date.longMonth[newMonth] + " " + newDay + " " + newYear);
 
-            dateChosen = (m + 1) + "/" + d + "/" + y;
+            dateChosen = (newMonth + 1) + "/" + newDay + "/" + newYear;
 
-            if (date.year > y) {
+            if (date.year > newYear) {
 
-                for (k = 9; k < 18; k++) {
+                changeAllShading("grey");
 
-                    $(`#${k}`).css("background-color", "grey");
-            
-                }
+            } else if (date.year < newYear) {
 
-            } else if (date.year < y) {
+                changeAllShading("tomato");
 
-                for (k = 9; k < 18; k++) {
+            } else if (date.year == newYear) {
 
-                    $(`#${k}`).css("background-color", "tomato");
-            
-                }
+                if (date.month > newMonth) {
 
-            } else if (date.year == y) {
+                    changeAllShading("grey");
 
-                if (date.month > m) {
+                } else if (date.month < newMonth) {
 
-                    for (k = 9; k < 18; k++) {
+                    changeAllShading("tomato");
 
-                        $(`#${k}`).css("background-color", "grey");
-                
-                    }
+                } else if (date.month == newMonth) {
 
-                } else if (date.month < m) {
+                    if (date.dayMonth > newDay) {
 
-                    for (k = 9; k < 18; k++) {
+                        changeAllShading("grey");
+
+                    } else if (date.dayMonth < newDay) {
+
+                        changeAllShading("tomato");
     
-                        $(`#${k}`).css("background-color", "tomato");
-                
-                    }
+                    } else if (date.dayMonth == newDay) {
 
-                } else if (date.month == m) {
+                        changeAllShading("tomato");
 
-                    if (date.dayMonth > d) {
-
-                        for (k = 9; k < 18; k++) {
-
-                            $(`#${k}`).css("background-color", "grey");
-                    
-                        }
-
-                    } else if (date.dayMonth < d) {
-
-                        for (k = 9; k < 18; k++) {
-        
-                            $(`#${k}`).css("background-color", "tomato");
-                    
-                        }
-    
-                    } else if (date.dayMonth == d) {
-
-                        for (j = date.hour; j > 8; j--) {
-
-                            $(`#${j}`).css("background-color", "grey");
-                    
-                        }
+                        changeDayShading();
 
                     }
 
