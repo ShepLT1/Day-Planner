@@ -9,25 +9,26 @@ header {
     height: 175px;
     text-align: center;
     padding: 30px;
-
-}
-
-.date-btn, #date {
-
-    display: inline;
+    border-bottom: 5px black solid;
 
 }
 
 #select-date-cont {
 
-    display: block;
-    margin: 10px auto;
+    margin: 10px 20px;
+    float: left;
+    position: relative;
+    left: 30px;
 
 }
 
-input {
+#datepicker {
 
     background-color: rgb(233, 233, 233);
+    text-align: center;
+    border: none;
+    width: 125px;
+    font-size: 115%;
 
 }
 
@@ -40,19 +41,19 @@ img {
 main {
 
     width: 100%;
+    padding-top: 20px;
 
 }
 
 article {
 
-    margin: 25px 50px;
-    background-color: teal;
+    margin: 50px 50px 25px 50px;
 
 }
 
 section {
 
-    height: 75px;
+    height: 75px
 
 }
 

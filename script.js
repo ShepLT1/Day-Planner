@@ -1,16 +1,25 @@
-// At end of script code, store current value for day variable in local storage.
 
 // localStorage.clear();
 
 $(document).ready(function() {
 
-    // if local storage day variable does not equal current day variable, clear local storage & update textareas
-
     var chosenButton = "";
 
     var toDo = "";
 
+    var matches = "";
+
+    var d = "";
+
+    var m = "";
+
+    var y = "";
+
+    var composedDate = "";
+
     var dateChosen = "";
+
+    var chosenWeekday = "";
 
     var today = new Date();
 
@@ -28,8 +37,6 @@ $(document).ready(function() {
 
     var weekday = date.dayArr[date.day];
 
-    console.log(date.dayMonth);
-
     // syntactic sugar
     // console.log(`this is day: ${weekday}`);
 
@@ -38,10 +45,6 @@ $(document).ready(function() {
     var currentDay = (date.month + 1) + "/" + date.dayMonth + "/" + date.year;
 
     $("#date").text(weekday + ", " + date.longMonth[date.month] + " " + date.dayMonth);
-
-    // If last 2 digits of time are both 0, apply color theme (past times greyed out, current time in 1 color)
-
-    // Save button on click, link that section's current text content to the section's data attribute (time) via an array of objects, stringify, and store in local storage
 
     $( function() {
         $( "#datepicker" ).datepicker({
@@ -53,33 +56,31 @@ $(document).ready(function() {
     });
 
     // retrieved from https://stackoverflow.com/questions/276479/javascript-how-to-validate-dates-in-format-mm-dd-yyyy
-
+    
     function isValidDate(date) {
     
-    var matches = /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/.exec(date);
+        matches = /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/.exec(date);
 
-        if (matches == null) {
-            
-            return false
+            if (matches == null) {
+                
+                return false
 
-        };
-    
-    var d = matches[2];
-    
-    var m = matches[1] - 1;
-    
-    var y = matches[3];
-    
-    var composedDate = new Date(y, m, d);
-    
-    return composedDate.getDate() == d &&
-            composedDate.getMonth() == m &&
-            composedDate.getFullYear() == y;
+            };
+        
+        d = matches[2];
+        
+        m = matches[1] - 1;
+        
+        y = matches[3];
+        
+        composedDate = new Date(y, m, d);
+        
+        return composedDate.getDate() == d &&
+                composedDate.getMonth() == m &&
+                composedDate.getFullYear() == y;
     }
 
     if (loggedDay !== date.dayMonth) {
-
-        localStorage.clear();
 
         for (k = 9; k < 18; k++) {
 
@@ -103,7 +104,7 @@ $(document).ready(function() {
 
     for (i = 9; i < 18; i++) {
 
-        toDo = JSON.parse(localStorage.getItem(i));
+        toDo = JSON.parse(localStorage.getItem(currentDay + ", " +  i));
 
         $("#" + i).text(toDo);
 
@@ -135,18 +136,96 @@ $(document).ready(function() {
 
         dateChosen = $("#datepicker").val();
 
-        if (isValidDate(dateChosen)) {;
+        if (isValidDate(dateChosen)) {
 
-            if (dateChosen.charAt(3) == 0) {
+            // change textarea shading based on future/past date; can pull current month (if current month > chosenMonth then make all greyed out & opposite for current month < chosenMonth; if same month, set up if statements the same but sub days for months)
 
-                dateChosen = dateChosen.slice(0, 3) + dateChosen.slice(4, dateChosen.length);
+            if (d.charAt(0) == 0) {
+
+                d = d.substring(1);
 
             }
 
-            if (dateChosen.charAt(0) == 0) {
+            chosenWeekday = date.dayArr[composedDate.getDay()];
 
-                dateChosen = dateChosen.substring(1);
+            $("#date").text(chosenWeekday + ", " + date.longMonth[m] + " " + d);
 
+            dateChosen = (m + 1) + "/" + d + "/" + y;
+
+            if (date.year > y) {
+
+                for (k = 9; k < 18; k++) {
+
+                    $(`#${k}`).css("background-color", "grey");
+            
+                }
+
+            } else if (date.year < y) {
+
+                for (k = 9; k < 18; k++) {
+
+                    $(`#${k}`).css("background-color", "tomato");
+            
+                }
+
+            } else if (date.year == y) {
+
+                if (date.month > m) {
+
+                    for (k = 9; k < 18; k++) {
+
+                        $(`#${k}`).css("background-color", "grey");
+                
+                    }
+
+                } else if (date.month < m) {
+
+                    for (k = 9; k < 18; k++) {
+    
+                        $(`#${k}`).css("background-color", "tomato");
+                
+                    }
+
+                } else if (date.month == m) {
+
+                    if (date.dayMonth > d) {
+
+                        for (k = 9; k < 18; k++) {
+
+                            $(`#${k}`).css("background-color", "grey");
+                    
+                        }
+
+                    } else if (date.dayMonth < d) {
+
+                        for (k = 9; k < 18; k++) {
+        
+                            $(`#${k}`).css("background-color", "tomato");
+                    
+                        }
+    
+                    } else if (date.dayMonth == d) {
+
+                        for (j = date.hour; j > 8; j--) {
+
+                            $(`#${j}`).css("background-color", "grey");
+                    
+                        }
+
+                    }
+
+                }
+
+            }
+
+            for (n = 9; n < 18; n++) {
+
+                toDo = JSON.parse(localStorage.getItem(dateChosen + ", " +  n));
+
+                $("#" + n).text("");
+        
+                $("#" + n).text(toDo);
+        
             }
 
         } else {
@@ -155,10 +234,6 @@ $(document).ready(function() {
 
         }
 
-    })
-
-    console.log((date.month + 1) + "/" + date.dayMonth + "/" + date.year);
-
-    console.log(today);
+    });
 
 })
