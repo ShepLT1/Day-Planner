@@ -6,8 +6,10 @@
     <title>Work Day Schedule</title>
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -18,7 +20,15 @@
 
         <h5>Take control of your work day with our organized scheduler</h5>
 
-        <h5 id="date">Date goes here</h5>
+        <h5 id="date"></h5>
+
+        <form id="select-date-cont">
+
+            <button id="find-btn" type="submit">Find</button>
+
+            <input type="text" id="datepicker" placeholder="mm/dd/yyyy">
+
+        </form>
 
     </header>
 
@@ -132,9 +142,7 @@
 
     </main>
 
-    <script src="script.js">
-
-    </script>
+    <script src="script.js"></script>
     
 </body>
 </html>

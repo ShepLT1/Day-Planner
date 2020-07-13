@@ -1,8 +1,39 @@
+body {
+
+    background-color: rgb(233, 233, 233);
+
+}
+
 header {
 
-    height: 150px;
+    height: 175px;
     text-align: center;
     padding: 30px;
+
+}
+
+.date-btn, #date {
+
+    display: inline;
+
+}
+
+#select-date-cont {
+
+    display: block;
+    margin: 10px auto;
+
+}
+
+input {
+
+    background-color: rgb(233, 233, 233);
+
+}
+
+img {
+
+    width: 25px;
 
 }
 
@@ -36,7 +67,7 @@ section {
 
 }
 
-button {
+.save-button {
 
     float: right;
     position: absolute;
