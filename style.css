@@ -1,6 +1,6 @@
 body {
 
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(53, 53, 53);
 
 }
 
@@ -9,26 +9,40 @@ header {
     height: 175px;
     text-align: center;
     padding: 30px;
-    border-bottom: 5px black solid;
+    border-bottom: 5px rgb(16, 16, 16) solid;
+    color: rgb(233, 233, 233)
 
 }
 
 #select-date-cont {
 
-    margin: 10px 20px;
+    margin: 10px 0;
     float: left;
-    position: relative;
-    left: 30px;
 
 }
 
 #datepicker {
 
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(53, 53, 53);
+    color: rgb(233, 233, 233); 
     text-align: center;
     border: none;
     width: 125px;
     font-size: 115%;
+
+}
+
+::placeholder {
+
+    color: rgb(211, 211, 211);
+    opacity: 1; 
+
+}
+
+#ui-datepicker-div {
+
+    background-color: rgb(53, 53, 53);
+    color: rgb(233, 233, 233);
 
 }
 
@@ -41,19 +55,30 @@ img {
 main {
 
     width: 100%;
-    padding-top: 20px;
+    height: 100%;
+    padding: 20px 50px 0 50px;
 
 }
 
 article {
 
-    margin: 50px 50px 25px 50px;
+    margin: 50px 0 25px 0;
+    border-bottom: 2px solid rgb(16, 16, 16);
 
 }
 
 section {
 
-    height: 75px
+    height: 75px;
+
+}
+
+#find-btn {
+
+    background-color: rgb(152, 40, 0);
+    border-radius: 5px;
+    border: 1px solid rgb(233, 233, 233);
+    color: rgb(233, 233, 233);
 
 }
 
@@ -63,8 +88,12 @@ section {
     position: absolute;
     width: 75px;
     height: 75px;
-    background-color: rebeccapurple;
-    border: 1px solid black;
+    background-color: rgb(53, 53, 53);
+    color: rgb(233, 233, 233);
+    border-top: 2px solid rgb(16, 16, 16);
+    border-right: 2px solid rgb(16, 16, 16);
+    text-align: right;
+    padding: 2px 5px;
 
 }
 
@@ -75,15 +104,21 @@ section {
     right: 50px;
     width: 75px;
     height: 75px;
-    background-color: rebeccapurple;
+    background-color: rgb(20, 107, 133);
+    border: none;
+    border-top: 2px solid rgb(16, 16, 16);
+    border-left: 2px solid rgb(16, 16, 16);
 
 }
 
 textarea {
 
-    background-color: tomato;
+    background-color: rgb(2, 120, 102);
+    color: rgb(233, 233, 233);
     width: 100%;
     height: 100%;
     padding: 5px 85px;
+    border: none;
+    border-top: 2px solid rgb(16, 16, 16);
 
 }

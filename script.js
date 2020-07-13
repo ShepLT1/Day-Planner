@@ -92,11 +92,11 @@ $(document).ready(function() {
 
         for (j = date.hour; j > 8; j--) {
 
-            $(`#${j}`).css("background-color", "grey");
+            $(`#${j}`).css("background-color", "rgb(70, 70, 70)");
     
         }
         
-        $(`#${date.hour}`).css("background-color", "turquoise");
+        $(`#${date.hour}`).css("background-color", "rgb(164, 45, 1)");
 
     }
 
@@ -104,7 +104,7 @@ $(document).ready(function() {
 
     if (loggedDay !== currentDay) {
 
-        changeAllShading("tomato");
+        changeAllShading("rgb(2, 120, 102)");
 
     }
 
@@ -162,35 +162,35 @@ $(document).ready(function() {
 
             if (date.year > newYear) {
 
-                changeAllShading("grey");
+                changeAllShading("rgb(70, 70, 70)");
 
             } else if (date.year < newYear) {
 
-                changeAllShading("tomato");
+                changeAllShading("rgb(2, 120, 102)");
 
             } else if (date.year == newYear) {
 
                 if (date.month > newMonth) {
 
-                    changeAllShading("grey");
+                    changeAllShading("rgb(70, 70, 70)");
 
                 } else if (date.month < newMonth) {
 
-                    changeAllShading("tomato");
+                    changeAllShading("rgb(2, 120, 102)");
 
                 } else if (date.month == newMonth) {
 
                     if (date.dayMonth > newDay) {
 
-                        changeAllShading("grey");
+                        changeAllShading("rgb(70, 70, 70)");
 
                     } else if (date.dayMonth < newDay) {
 
-                        changeAllShading("tomato");
+                        changeAllShading("rgb(2, 120, 102)");
     
                     } else if (date.dayMonth == newDay) {
 
-                        changeAllShading("tomato");
+                        changeAllShading("rgb(2, 120, 102)");
 
                         changeDayShading();
 
