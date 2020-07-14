@@ -128,91 +128,91 @@ $(document).ready(function() {
 
             localStorage.setItem(currentDay + ", " + chosenButton, JSON.stringify($("#" + chosenButton).val()));
 
-        } else if (isValidDate(dateChosen)) {
+        } else if (dateChosen) {
 
             localStorage.setItem(dateChosen + ", " + chosenButton, JSON.stringify($("#" + chosenButton).val()));
 
         } else {
 
-            alert("Please enter a valid date and click 'Find' or press'Enter'");
+            alert("Please enter a valid date");
 
         }
 
     });
 
-    $("form").on("submit", function(event) {
+    $("#datepicker").datepicker({
 
-        event.preventDefault();
+        onSelect: function(dateText, inst) {
 
-        dateChosen = $("#datepicker").val();
+            dateChosen = $("#datepicker").val();
 
-        if (isValidDate(dateChosen)) {
+            if (isValidDate(dateChosen)) {
 
-            if (newDay.charAt(0) == 0) {
+                if (newDay.charAt(0) == 0) {
 
-                newDay = newDay.substring(1);
+                    newDay = newDay.substring(1);
 
-            }
+                }
 
-            chosenWeekday = date.dayArr[composedDate.getDay()];
+                chosenWeekday = date.dayArr[composedDate.getDay()];
 
-            $("#date").text(chosenWeekday + ", " + date.longMonth[newMonth] + " " + newDay + " " + newYear);
+                $("#date").text(chosenWeekday + ", " + date.longMonth[newMonth] + " " + newDay + " " + newYear);
 
-            dateChosen = (newMonth + 1) + "/" + newDay + "/" + newYear;
+                dateChosen = (newMonth + 1) + "/" + newDay + "/" + newYear;
 
-            if (date.year > newYear) {
-
-                changeAllShading("rgb(70, 70, 70)");
-
-            } else if (date.year < newYear) {
-
-                changeAllShading("rgb(2, 120, 102)");
-
-            } else if (date.year == newYear) {
-
-                if (date.month > newMonth) {
+                if (date.year > newYear) {
 
                     changeAllShading("rgb(70, 70, 70)");
 
-                } else if (date.month < newMonth) {
+                } else if (date.year < newYear) {
 
                     changeAllShading("rgb(2, 120, 102)");
 
-                } else if (date.month == newMonth) {
+                } else if (date.year == newYear) {
 
-                    if (date.dayMonth > newDay) {
+                    if (date.month > newMonth) {
 
                         changeAllShading("rgb(70, 70, 70)");
 
-                    } else if (date.dayMonth < newDay) {
-
-                        changeAllShading("rgb(2, 120, 102)");
-    
-                    } else if (date.dayMonth == newDay) {
+                    } else if (date.month < newMonth) {
 
                         changeAllShading("rgb(2, 120, 102)");
 
-                        changeDayShading();
+                    } else if (date.month == newMonth) {
+
+                        if (date.dayMonth > newDay) {
+
+                            changeAllShading("rgb(70, 70, 70)");
+
+                        } else if (date.dayMonth < newDay) {
+
+                            changeAllShading("rgb(2, 120, 102)");
+        
+                        } else if (date.dayMonth == newDay) {
+
+                            changeAllShading("rgb(2, 120, 102)");
+
+                            changeDayShading();
+
+                        }
 
                     }
 
                 }
 
+                for (n = 9; n < 18; n++) {
+
+                    toDo = JSON.parse(localStorage.getItem(dateChosen + ", " +  n));
+            
+                    $("#" + n).val(toDo);
+            
+                }
+
+            } else {
+
+                alert("Please enter a valid date");
+
             }
-
-            for (n = 9; n < 18; n++) {
-
-                toDo = JSON.parse(localStorage.getItem(dateChosen + ", " +  n));
-
-                $("#" + n).text("");
-        
-                $("#" + n).text(toDo);
-        
-            }
-
-        } else {
-
-            alert("Please enter a valid date and click 'Find' or press 'Enter'");
 
         }
 
