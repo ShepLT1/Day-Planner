@@ -6,11 +6,16 @@ body {
 
 header {
 
-    height: 140px;
     text-align: center;
     padding: 20px;
     border-bottom: 10px rgb(16, 16, 16) solid;
     color: rgb(233, 233, 233);
+
+}
+
+h6 {
+
+    font-weight: normal;
 
 }
 
@@ -148,5 +153,89 @@ textarea:focus {
 .add-border-top {
 
     border-top: 2px solid rgb(16, 16, 16); 
+
+}
+
+@media screen and (max-width: 600px) {
+
+    main {
+
+        padding: 0 10px;
+
+    }
+
+    .save-button {
+
+        right: 10px;
+
+    }
+
+}
+
+@media screen and (max-width: 475px) {
+
+    header {
+
+        padding: 10px 20px;
+
+    }
+    
+    #datepicker {
+
+        color: transparent;
+        background-color: transparent;
+        background-image: url("calendar-icon.png");
+        background-size: cover;
+        width: 40px;
+        height: 40px;
+        margin-top: -5px;
+
+    }
+
+    ::placeholder {
+
+        color: transparent;
+
+    }
+
+    .time-div {
+
+        width: 45px;
+        padding-left: 0;
+        text-align: left;
+        font-size: 90%;
+
+    }
+
+    .save-button {
+
+        width: 50px;
+
+    }
+
+    textarea {
+
+        padding: 5px 55px;
+        font-size: 90%;
+
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+
+    .save-button {
+
+        width: 40px;
+
+    }
+
+    #datepicker {
+
+        width: 35px;
+        height: 35px;
+        margin-top: -2.5px;
+
+    }
 
 }

@@ -100,7 +100,7 @@ $(document).ready(function() {
 
     }
 
-    $("#date").text(weekday + ", " + date.longMonth[date.month] + " " + date.dayMonth + " " + date.year);
+    $("#date").text(weekday + ", " + date.longMonth[date.month] + " " + date.dayMonth);
 
     if (loggedDay !== currentDay) {
 
@@ -156,7 +156,7 @@ $(document).ready(function() {
 
                 chosenWeekday = date.dayArr[composedDate.getDay()];
 
-                $("#date").text(chosenWeekday + ", " + date.longMonth[newMonth] + " " + newDay + " " + newYear);
+                $("#date").text(chosenWeekday + ", " + date.longMonth[newMonth] + " " + newDay);
 
                 dateChosen = (newMonth + 1) + "/" + newDay + "/" + newYear;
 
