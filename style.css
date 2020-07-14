@@ -32,6 +32,12 @@ header {
 
 }
 
+#datepicker:focus {
+
+    outline: none;
+
+}
+
 ::placeholder {
 
     color: rgb(211, 211, 211);
@@ -63,7 +69,6 @@ main {
 article {
 
     margin: 50px 0 25px 0;
-    border-bottom: 2px solid rgb(16, 16, 16);
 
 }
 
@@ -75,10 +80,22 @@ section {
 
 #find-btn {
 
-    background-color: rgb(152, 40, 0);
+    background-color: rgb(142, 33, 0);
     border-radius: 5px;
     border: 1px solid rgb(233, 233, 233);
     color: rgb(233, 233, 233);
+
+}
+
+#find-btn:focus {
+
+    outline: none;
+
+}
+
+#find-btn:active {
+
+    box-shadow: 0 0 1px 1px rgb(233, 233, 233);
 
 }
 
@@ -106,8 +123,22 @@ section {
     height: 75px;
     background-color: rgb(20, 107, 133);
     border: none;
-    border-top: 2px solid rgb(16, 16, 16);
+    border-top: 2px solid rgb(53, 53, 53);
     border-left: 2px solid rgb(16, 16, 16);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+.save-button:focus {
+
+    outline: none;
+
+}
+
+.save-button:active {
+
+    border: 1px solid rgb(233, 233, 233);
 
 }
 
@@ -119,6 +150,20 @@ textarea {
     height: 100%;
     padding: 5px 85px;
     border: none;
-    border-top: 2px solid rgb(16, 16, 16);
+    border-top: 2px solid rgb(53, 53, 53);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+textarea:focus {
+
+    outline: none;
+
+}
+
+.add-border-top {
+
+    border-top: 2px solid rgb(16, 16, 16); 
 
 }
