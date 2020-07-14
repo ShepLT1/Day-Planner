@@ -1,28 +1,38 @@
 
-// localStorage.clear();
-
+// Runs JS code once document html finishes loading
 $(document).ready(function() {
 
+    // Save button selected
     var chosenButton = "";
 
+    // Textarea value
     var toDo = "";
 
+    // Array to validate user date selected
     var matches = "";
 
+    // Day of month selected by user
     var newDay = "";
 
+    // Month selected by user
     var newMonth = "";
 
+    // Year selected by user
     var newYear = "";
 
+    // Date user selected
     var composedDate = "";
 
+    // Reformatted user selected date
     var dateChosen = "";
 
+    // Day of week of user selected date
     var chosenWeekday = "";
 
+    // Today's date
     var today = new Date();
 
+    // Date object for retrieving desired date attributes
     var date = {
 
         day: today.getDay(),
@@ -35,15 +45,13 @@ $(document).ready(function() {
 
     }
 
+    // Today's day of week
     var weekday = date.dayArr[date.day];
 
-    // syntactic sugar
-    // console.log(`this is day: ${weekday}`);
-
-    var loggedDay = JSON.parse(localStorage.getItem("Today's date"));
-
+    // Formats current day for local storage use
     var currentDay = (date.month + 1) + "/" + date.dayMonth + "/" + date.year;
 
+    // Displays dropdown calendar on datepicker input field selection
     $( function() {
         $( "#datepicker" ).datepicker({
           showOn: "button",
@@ -53,8 +61,7 @@ $(document).ready(function() {
         });
     });
 
-    // retrieved from https://stackoverflow.com/questions/276479/javascript-how-to-validate-dates-in-format-mm-dd-yyyy
-    
+    // Validates & outputs user selected date; retrieved from https://stackoverflow.com/questions/276479/javascript-how-to-validate-dates-in-format-mm-dd-yyyy
     function isValidDate(date) {
     
         matches = /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/.exec(date);
@@ -78,6 +85,7 @@ $(document).ready(function() {
                 composedDate.getFullYear() == newYear;
     }
 
+    // Changes shading of text areas for every hour
     function changeAllShading(color) {
 
         for (k = 9; k < 18; k++) {
@@ -88,6 +96,7 @@ $(document).ready(function() {
 
     }
 
+    // Changes selected day shading based on past & current hours
     function changeDayShading() {
 
         for (j = date.hour; j > 8; j--) {
@@ -100,18 +109,13 @@ $(document).ready(function() {
 
     }
 
+    // Sets date currently viewing text equal to selected date
     $("#date").text(weekday + ", " + date.longMonth[date.month] + " " + date.dayMonth);
 
-    if (loggedDay !== currentDay) {
-
-        changeAllShading("rgb(2, 120, 102)");
-
-    }
-
+    // Calls on function to change today's shading based on current hour
     changeDayShading();
 
-    localStorage.setItem("Today's date", JSON.stringify(currentDay));
-
+    // Retrieves today's scheduled items and displays in text areas
     for (i = 9; i < 18; i++) {
 
         toDo = JSON.parse(localStorage.getItem(currentDay + ", " +  i));
@@ -120,6 +124,7 @@ $(document).ready(function() {
 
     }
 
+    // Stores value of text area associated with save button clicked & current/selected date in local storage
     $(".save-button").on("click", function() {
 
         chosenButton = $(this).attr("value");
@@ -140,6 +145,7 @@ $(document).ready(function() {
 
     });
 
+    // On date selecttion, validates date. If date valid, formats selected date to local-storage-friendly format, displays selected date above schedule, changes shading of schedule based on past, current, future, and updates text areas with associated saved values from local storage.
     $("#datepicker").datepicker({
 
         onSelect: function(dateText, inst) {

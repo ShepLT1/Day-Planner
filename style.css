@@ -13,12 +13,14 @@ header {
 
 }
 
+/* Description styling */
 h6 {
 
     font-weight: normal;
 
 }
 
+/* Date linked to schedule styling */
 #date {
 
     margin-top: 20px;
@@ -28,6 +30,7 @@ h6 {
 
 }
 
+/* Datepicker input styling */
 #datepicker {
 
     background-color: rgb(164, 45, 1);
@@ -47,6 +50,7 @@ h6 {
 
 }
 
+/* Datepicker input placeholder styling */
 ::placeholder {
 
     color: rgb(233, 233, 233);
@@ -54,6 +58,7 @@ h6 {
 
 }
 
+/* Dropdown calendar background styling */
 #ui-datepicker-div {
 
     background-color: rgb(53, 53, 53);
@@ -61,6 +66,7 @@ h6 {
 
 }
 
+/* Calendar icon styling */
 img {
 
     width: 25px;
@@ -81,12 +87,14 @@ article {
 
 }
 
+/* Container for groups conisisting of hour, text area, save button styling */
 section {
 
     height: 75px;
 
 }
 
+/* Hour container styling */
 .time-div {
 
     float: left;
@@ -130,6 +138,7 @@ section {
 
 }
 
+/* Text area availble to user styling */
 textarea {
 
     background-color: rgb(2, 120, 102);
@@ -150,12 +159,14 @@ textarea:focus {
 
 }
 
+/* Adds top border to selected element */
 .add-border-top {
 
     border-top: 2px solid rgb(16, 16, 16); 
 
 }
 
+/* Mobile responsive at 600px */
 @media screen and (max-width: 600px) {
 
     main {
@@ -172,6 +183,7 @@ textarea:focus {
 
 }
 
+/* Mobile responsive at 475px */
 @media screen and (max-width: 475px) {
 
     header {
@@ -180,6 +192,7 @@ textarea:focus {
 
     }
     
+    /* Changes user view of text input to calendar icon for datepicker */
     #datepicker {
 
         color: transparent;
@@ -222,6 +235,7 @@ textarea:focus {
 
 }
 
+/* Mobile responsive at 350px */
 @media screen and (max-width: 350px) {
 
     .save-button {

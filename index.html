@@ -6,15 +6,18 @@
     <title>Work Day Schedule</title>
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Loads style for datepicker -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Loads script for datepicker -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://use.fontawesome.com/0b6bab144c.js"></script>
 </head>
+
 <body>
 
-    <!-- Contains title, description, date -->
+    <!-- Contains title, description -->
     <header>
 
         <h1>Daily Scheduler</h1>
@@ -23,112 +26,141 @@
 
     </header>
 
-    <!-- Large container (full page width) -->
+    <!-- Contains main content -->
     <main>
 
+    
+        <!-- Datepicker text input -->
         <input type="text" id="datepicker" placeholder="Select Date" autocomplete="off">
 
+        <!-- Selected day above schedule -->
         <h4 id="date"></h4>
 
         <!-- Contains 9-5 schedule for that day -->
         <article>
 
-            <!-- Contains Hour, text field, Save button; Hint: float time left, save btn right, so text falls in between and width is variable -->
+            <!-- Contains 9AM hour, text field, Save button -->
             <section>
                 
                 <!-- Time div -->
                 <div class="time-div">9AM</div>
 
+                <!-- Section for user to enter notes -->
                 <textarea id="9" class="add-border-top"></textarea>
 
+                <!-- Save button -->
                 <button class="save-button add-border-top" value="9"><i class="fa fa-floppy-o fa-lg fa-inverse" aria-hidden="true"></i></button>
 
             </section>
 
+            <!-- Contains 10AM hour, text field, Save button -->
             <section>
 
                 <!-- Time div -->
                 <div class="time-div">10AM</div>
 
-                    <textarea id="10"></textarea>
+                <!-- Section for user to enter notes -->
+                <textarea id="10"></textarea>
 
+                <!-- Save button -->
                 <button class="save-button" value="10"><i class="fa fa-floppy-o fa-lg fa-inverse" aria-hidden="true"></i></button>
 
             </section>
 
+            <!-- Contains 11AM hour, text field, Save button -->
             <section>
 
                 <!-- Time div -->
                 <div class="time-div">11AM</div>
 
+                <!-- Section for user to enter notes -->
                 <textarea id="11"></textarea>
 
+                <!-- Save button -->
                 <button class="save-button" value="11"><i class="fa fa-floppy-o fa-lg fa-inverse" aria-hidden="true"></i></button>
 
             </section>
 
+            <!-- Contains 12PM hour, text field, Save button -->
             <section>
 
                 <!-- Time div -->
                 <div class="time-div">12PM</div>
 
+                <!-- Section for user to enter notes -->
                 <textarea id="12"></textarea>
 
+                <!-- Save button -->
                 <button class="save-button" value="12"><i class="fa fa-floppy-o fa-lg fa-inverse" aria-hidden="true"></i></button>
 
             </section>
 
+            <!-- Contains 1PM hour, text field, Save button -->
             <section>
 
                 <!-- Time div -->
                 <div class="time-div">1PM</div>
 
+                <!-- Section for user to enter notes -->
                 <textarea id="13"></textarea>
 
+                <!-- Save button -->
                 <button class="save-button" value="13"><i class="fa fa-floppy-o fa-lg fa-inverse" aria-hidden="true"></i></button>
 
             </section>
 
+            <!-- Contains 2PM hour, text field, Save button -->
             <section>
 
                 <!-- Time div -->
                 <div class="time-div">2PM</div>
 
+                <!-- Section for user to enter notes -->
                 <textarea id="14"></textarea>
 
+                <!-- Save button -->
                 <button class="save-button" value="14"><i class="fa fa-floppy-o fa-lg fa-inverse" aria-hidden="true"></i></button>
 
             </section>
 
+            <!-- Contains 3PM hour, text field, Save button -->
             <section>
 
                 <!-- Time div -->
                 <div class="time-div">3PM</div>
 
+                <!-- Section for user to enter notes -->
                 <textarea id="15"></textarea>
 
+                <!-- Save button -->
                 <button class="save-button" value="15"><i class="fa fa-floppy-o fa-lg fa-inverse" aria-hidden="true"></i></button>
 
             </section>
 
+            <!-- Contains 4PM hour, text field, Save button -->
             <section>
 
                 <!-- Time div -->
                 <div class="time-div">4PM</div>
 
+                <!-- Section for user to enter notes -->
                 <textarea id="16"></textarea>
 
+                <!-- Save button -->
                 <button class="save-button" value="16"><i class="fa fa-floppy-o fa-lg fa-inverse" aria-hidden="true"></i></button>
 
             </section>
 
+            <!-- Contains 5PM hour, text field, Save button -->
             <section>
 
                 <!-- Time div -->
                 <div class="time-div">5PM</div>
 
+                <!-- Section for user to enter notes -->
                 <textarea id="17"></textarea>
 
+                <!-- Save button -->
                 <button class="save-button" value="17"><i class="fa fa-floppy-o fa-lg fa-inverse" aria-hidden="true"></i></button>
 
             </section>
