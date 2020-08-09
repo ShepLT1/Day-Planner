@@ -29,3 +29,11 @@ Calendar application that allows the user to save events for each work hour of a
 - Mobile responsive layout
 
 - Dark theme
+
+## Preview
+
+![day planner demo](./Assets/day-planner.png)
+
+## Github Link
+
+https://sheplt1.github.io/Day-Planner/
